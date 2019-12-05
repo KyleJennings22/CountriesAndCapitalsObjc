@@ -48,5 +48,6 @@ class CountryTableViewController: UITableViewController {
         let okay = UIAlertAction.init(title: "Thanks!", style: .default, handler: nil)
         alert.addAction(okay)
         self.present(alert, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
