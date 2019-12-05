@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class KPJBorders;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,8 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly, copy) NSString *name;
 @property (nonatomic, readonly, copy) NSString *capital;
+@property (nonatomic, readonly, copy) NSArray<NSString *> *borderCountries;
 
--(instancetype)initWithName: (NSString *)name capital: (NSString *)capital;
+
+-(instancetype)initWithName: (NSString *)name capital: (NSString *)capital borderCountries: (NSArray<NSString *> *)borderCountries;
 
 -(instancetype)initWithDictionary: (NSDictionary *)dictionary;
 

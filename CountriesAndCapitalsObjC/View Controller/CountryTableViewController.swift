@@ -38,7 +38,15 @@ class CountryTableViewController: UITableViewController {
 
         cell.textLabel?.text = countries?[indexPath.row].name
         cell.detailTextLabel?.text = countries?[indexPath.row].capital
-
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let countries = countries?[indexPath.row].borderCountries else {return}
+        let borderCountries = countries.joined(separator: ", ")
+        let alert = UIAlertController(title: "Border Countries", message: borderCountries, preferredStyle: .alert)
+        let okay = UIAlertAction.init(title: "Thanks!", style: .default, handler: nil)
+        alert.addAction(okay)
+        self.present(alert, animated: true)
     }
 }

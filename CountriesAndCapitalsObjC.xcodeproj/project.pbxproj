@@ -16,6 +16,7 @@
 		279D1B6A2399814A0071F686 /* KPJCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 279D1B692399814A0071F686 /* KPJCountry.m */; };
 		279D1B6D239982250071F686 /* KPJCountryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279D1B6C239982250071F686 /* KPJCountryController.m */; };
 		279D1B71239985560071F686 /* CountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D1B70239985560071F686 /* CountryTableViewController.swift */; };
+		279D1B74239987AA0071F686 /* KPJBorders.m in Sources */ = {isa = PBXBuildFile; fileRef = 279D1B73239987AA0071F686 /* KPJBorders.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		279D1B6C239982250071F686 /* KPJCountryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KPJCountryController.m; sourceTree = "<group>"; };
 		279D1B6F239985550071F686 /* CountriesAndCapitalsObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CountriesAndCapitalsObjC-Bridging-Header.h"; sourceTree = "<group>"; };
 		279D1B70239985560071F686 /* CountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewController.swift; sourceTree = "<group>"; };
+		279D1B72239987AA0071F686 /* KPJBorders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KPJBorders.h; sourceTree = "<group>"; };
+		279D1B73239987AA0071F686 /* KPJBorders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KPJBorders.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 			children = (
 				279D1B682399814A0071F686 /* KPJCountry.h */,
 				279D1B692399814A0071F686 /* KPJCountry.m */,
+				279D1B72239987AA0071F686 /* KPJBorders.h */,
+				279D1B73239987AA0071F686 /* KPJBorders.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				279D1B6A2399814A0071F686 /* KPJCountry.m in Sources */,
 				279D1B4D239980F80071F686 /* AppDelegate.m in Sources */,
 				279D1B5E239980F90071F686 /* main.m in Sources */,
+				279D1B74239987AA0071F686 /* KPJBorders.m in Sources */,
 				279D1B50239980F80071F686 /* SceneDelegate.m in Sources */,
 				279D1B71239985560071F686 /* CountryTableViewController.swift in Sources */,
 			);

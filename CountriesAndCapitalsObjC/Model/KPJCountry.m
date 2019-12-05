@@ -7,16 +7,18 @@
 //
 
 #import "KPJCountry.h"
+#import "KPJBorders.h"
 
 @implementation KPJCountry
 
-- (instancetype)initWithName:(NSString *)name capital:(NSString *)capital
+- (instancetype)initWithName:(NSString *)name capital:(NSString *)capital borderCountries:(NSArray<NSString *> *)borderCountries
 {
     self = [super init];
     if (self)
     {
         _name = [name copy];
         _capital = [capital copy];
+        _borderCountries = [borderCountries copy];
     }
     
     return self;
@@ -26,7 +28,8 @@
 {
     NSString *name = dictionary[@"name"];
     NSString *capital = dictionary[@"capital"];
+    NSArray<NSString *> *borderCountries = [[NSArray<NSString *> alloc] initWithArray:dictionary[@"borders"]];
     
-    return [self initWithName:name capital:capital];
+    return [self initWithName:name capital:capital borderCountries:borderCountries];
 }
 @end
