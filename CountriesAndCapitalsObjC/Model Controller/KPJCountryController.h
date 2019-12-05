@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)fetchCountriesWithCompletion: (void(^) (NSArray<KPJCountry *> *))completion;
 
++(void)fetchCountriesFromName: (NSString *)name completion: (void(^) (NSString *))completion;
+
+
 
 @end
 

@@ -8,13 +8,15 @@
 
 #import "KPJCountryController.h"
 
-static NSString *const baseURLString = @"https://restcountries.eu/rest/v2/all";
+static NSString *const baseURLString = @"https://restcountries.eu/rest/v2";
 
 @implementation KPJCountryController
 
 + (void)fetchCountriesWithCompletion:(void (^)(NSArray<KPJCountry *> * _Nonnull))completion
 {
-    NSURL *finalURL = [[NSURL alloc]initWithString:baseURLString];
+    
+    NSURL *url = [[NSURL alloc]initWithString:baseURLString];
+    NSURL *finalURL = [url URLByAppendingPathComponent:@"all"];
     
     [[NSURLSession.sharedSession dataTaskWithURL:finalURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error)
@@ -35,11 +37,38 @@ static NSString *const baseURLString = @"https://restcountries.eu/rest/v2/all";
         for (NSDictionary *countryDictionary in dataDictionary) {
             KPJCountry *country = [[KPJCountry alloc] initWithDictionary:countryDictionary];
             [countries addObject:country];
-            NSLog(@"Country Name: %@", country.name);
+ //           NSLog(@"Country Name: %@", country.name);
         }
         return completion(countries);
         
     }]resume];
+}
+
++ (void)fetchCountriesFromName:(NSString *)name completion:(void (^)(NSString * _Nonnull))completion
+{
+    NSURL *url = [[NSURL alloc]initWithString:baseURLString];
+    NSURL *secondURL = [url URLByAppendingPathComponent:@"alpha"];
+    NSURL *finalURL = [secondURL URLByAppendingPathComponent:name];
+    
+        [[NSURLSession.sharedSession dataTaskWithURL:finalURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
+            if (error)
+            {
+                NSLog(@"Error: %@", error);
+                return completion([NSString new]);
+            }
+            if (!data)
+            {
+                NSLog(@"No Data");
+                return completion([NSString new]);
+            }
+            
+            NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+            
+            NSString *countryName = dataDictionary[@"name"];
+            return completion(countryName);
+            
+        }]resume];
 }
 
 @end
